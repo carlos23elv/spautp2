@@ -4,8 +4,8 @@
  */
 package Controlador;
 
-import Entidades.Encargado;
-import Modelo.EncargadoDAO;
+import Entidades.Tecnico;
+import Modelo.TecnicoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ControlEncargado extends HttpServlet {
-    String listar="../inicio.jsp";
+public class ControlTecnico extends HttpServlet{
+     String listar="../inicio.jsp";
     
-    Encargado c = new Encargado();
-    EncargadoDAO dao = new EncargadoDAO();
+    Tecnico c = new Tecnico();
+    TecnicoDAO dao = new TecnicoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,6 +45,42 @@ public class ControlEncargado extends HttpServlet {
             out.println("</html>");
         }
     }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
@@ -63,10 +99,9 @@ public class ControlEncargado extends HttpServlet {
     protected void lista(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException 
     {
-        EncargadoDAO modelo = new EncargadoDAO();
-        List<Encargado> lista = modelo.listar();
-        request.setAttribute("Encargado", lista);
+        TecnicoDAO modelo = new TecnicoDAO();
+        List<Tecnico> lista = modelo.listar();
+        request.setAttribute("Tecnico", lista);
         request.getRequestDispatcher("Administracion/inicio.jsp").forward(request, response);
     }
-    
 }
