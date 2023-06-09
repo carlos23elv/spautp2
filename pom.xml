@@ -5,7 +5,7 @@
     <artifactId>SPA_UTP</artifactId>
     <version>web</version>
     <packaging>war</packaging>
-    <name>SPA_UTP-web</name>
+    <name>SPA_UTP-webv1.0</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
